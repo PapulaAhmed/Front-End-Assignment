@@ -11,7 +11,37 @@ import LearnMoreBtn from "@/components/learnmorebtn";
 import LogoStrip from "@/components/logostrip";
 import Navbar from "@/components/navbar";
 import PlanCards from "@/components/plancard";
+import TestimonialSection from "@/components/testimonialsection";
 import Image from "next/image";
+
+/**
+ * @typedef {Object} Testimonial
+ * @property {number} id - Unique identifier for the testimonial
+ * @property {string} text - The testimonial text content
+ * @property {string} name - The name of the person giving the testimonial
+ */
+
+/**
+ * Fetches testimonials from JSONPlaceholder API
+ * @returns {Promise<Testimonial[]>} Array of testimonials
+ */
+async function fetchTestimonials() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    // Accept JSON, and allow ISR-friendly caching
+    headers: { Accept: "application/json" },
+    // NOTE: no-cache here is NOT desired, we want static+ISR
+  });
+  if (!res.ok) throw new Error(`Failed: ${res.status}`);
+  const posts = await res.json();
+
+  // Transform posts to testimonials format
+  return posts.slice(0, 12).map((post) => ({
+    id: post.id,
+    title: post.title,
+    text: post.body,
+    name: `User ${post.userId}`, // Simple name generation since posts don't have names
+  }));
+}
 
 const features = [
   {
@@ -40,7 +70,16 @@ const features = [
   },
 ];
 
-const Home = () => {
+const Home = async () => {
+  // Fetch testimonials server-side
+  let testimonials = [];
+  try {
+    testimonials = await fetchTestimonials();
+  } catch (e) {
+    console.error("[Home] testimonials error:", e);
+    testimonials = [];
+  }
+
   return (
     <>
       <Navbar />
@@ -203,7 +242,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-            {/* Management Section */}
+      {/* Management Section */}
       <section
         className="relative py-20 md:py-28"
         aria-labelledby="management-heading"
@@ -264,6 +303,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Our Users Section */}
+      <TestimonialSection testimonials={testimonials} />
     </>
   );
 };
