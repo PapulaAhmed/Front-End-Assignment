@@ -305,6 +305,45 @@ const Home = async () => {
       </section>
       {/* Our Users Section */}
       <TestimonialSection testimonials={testimonials} />
+      {/* Sign Up Section */}
+      <section className="relative py-20 bg-gradient-to-t from-[#D2DCFF] to-[#F8FAFC] overflow-hidden">
+        {/* Decorative images */}
+        <div className="absolute left-0 hidden md:block md:-left-37 lg:left-0 top-1/3 -translate-y-1/2 w-70 h-65 z-0">
+          <Image
+            src="/images/Sign Up Section/emojistar.png"
+            alt="Decorative star emoji"
+            width={192}
+            height={192}
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <div className="absolute hidden right-0 md:block md:-right-25 lg:right-0 top-1/2 -translate-y-1/3 w-70 h-70 z-0">
+          <Image
+            src="/images/Sign Up Section/helix2.png"
+            alt="Decorative helix"
+            width={300}
+            height={300}
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-7xl">
+          <h2 className="text-4xl font-bold text-slate-900 sm:text-5xl mb-6">
+            Sign up for free today
+          </h2>
+          <p className="text-black text-lg mb-8 mx-auto max-w-[50ch]">
+            Celebrate the joy of accomplishment with an app designed to track
+            your progress and motivate your efforts.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex items-center justify-center gap-4">
+            <GetFreeBtn />
+            <LearnMoreBtn variant="font-medium" />
+          </div>
+        </div>
+      </section>
     </>
   );
 };
