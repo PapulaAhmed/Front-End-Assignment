@@ -8,9 +8,11 @@ import {
   SecurityIcon,
 } from "@/components/iconwrapper";
 import LearnMoreBtn from "@/components/learnmorebtn";
+import Logo from "@/components/logo";
 import LogoStrip from "@/components/logostrip";
 import Navbar from "@/components/navbar";
 import PlanCards from "@/components/plancard";
+import SocialMediaIcons from "@/components/socialmediaiconbtn";
 import TestimonialSection from "@/components/testimonialsection";
 import Image from "next/image";
 
@@ -344,6 +346,208 @@ const Home = async () => {
           </div>
         </div>
       </section>
+      {/* Footer Section */}
+      <footer className="bg-black text-slate-300 py-8">
+        <div className="px-6">
+          <div className="flex flex-col md:flex-row md:justify-between">
+            {/* Left Side - Logo & Social */}
+            <div className="max-w-[30%] md:w-1/3 flex flex-col justify-between mb-8 md:mb-0">
+              <div>
+                {/* Logo */}
+                <div className="flex flex-col mb-4">
+                  <Logo />
+                </div>
+
+                {/* Description */}
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed max-w-xs">
+                  Effortlessly turn your ideas into a fully functional,
+                  responsive, no-code SaaS website.
+                </p>
+              </div>
+
+              {/* Social Media Icons */}
+              <SocialMediaIcons />
+            </div>
+
+            {/* Right Side - Navigation Columns */}
+            <div className="md:w-fit md:flex-shrink-0">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-10 md:gap-x-8">
+                {/* Product Column */}
+                <div>
+                  <h3 className="text-white font-semibold mb-4">Product</h3>
+                  <ul className="space-y-4">
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Features
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Integrations
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Updates
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        FAQ
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Pricing
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Company Column */}
+                <div>
+                  <h3 className="text-white font-semibold mb-4">Company</h3>
+                  <ul className="space-y-4">
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        About
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Blog
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Careers
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Manifesto
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Press
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Contact
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Resources Column */}
+                <div>
+                  <h3 className="text-white font-semibold mb-4">Resources</h3>
+                  <ul className="space-y-4">
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Examples
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Community
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Guides
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Docs
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Legal Column */}
+                <div>
+                  <h3 className="text-white font-semibold mb-4">Legal</h3>
+                  <ul className="space-y-4">
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Privacy
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Terms
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        Security
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
