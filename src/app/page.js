@@ -1,4 +1,5 @@
 import Eyebrow from "@/components/eyebrow";
+import FeatureCards from "@/components/featurecard";
 import GetFreeBtn from "@/components/getfreebtn";
 import {
   GoalIcon,
@@ -9,6 +10,7 @@ import {
 import LearnMoreBtn from "@/components/learnmorebtn";
 import LogoStrip from "@/components/logostrip";
 import Navbar from "@/components/navbar";
+import PlanCards from "@/components/plancard";
 import Image from "next/image";
 
 const features = [
@@ -198,6 +200,67 @@ const Home = () => {
                 <LearnMoreBtn variant="text-sm mt-4" />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+            {/* Management Section */}
+      <section
+        className="relative py-20 md:py-28"
+        aria-labelledby="management-heading"
+      >
+        <div className="mx-auto px-4 sm:px-6 max-w-6xl">
+          {/* Pill Badge */}
+          <div className="flex justify-center">
+            <Eyebrow label="Everything You Need" />
+          </div>
+
+          {/* Heading */}
+          <h2
+            id="management-heading"
+            className="mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-slate-900 text-center"
+          >
+            Streamlined for easy <br /> management
+          </h2>
+
+          {/* Supporting Paragraph */}
+          <p className="mt-4 text-base sm:text-lg text-black text-center mx-auto max-w-[60ch]">
+            Enjoy customizable lists, team work tools, and smart <br />
+            tracking all in one place. Set tasks, get reminders, and <br />
+            see your progress simply and quickly.
+          </p>
+
+          {/* Feature Cards Grid */}
+          <FeatureCards />
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-20 md:py-28 bg-gray-50">
+        <div className="mx-auto px-4 sm:px-6 max-w-6xl">
+          {/* Pill Badge */}
+          <div className="flex justify-center">
+            <Eyebrow label="Boost your productivity" />
+          </div>
+
+          {/* Heading */}
+          <h2 className="mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-slate-900 text-center">
+            A more effective way
+            <br />
+            to track progress
+          </h2>
+
+          {/* Lead paragraph */}
+          <p className="mt-4 text-base md:text-lg text-center mx-auto text-black max-w-[700px]">
+            Effortlessly turn your ideas into a fully functional,
+            <br />
+            responsive, no-code SaaS website in just minutes with
+            <br />
+            the set of free components for Framer.
+          </p>
+
+          {/* Pricing Grid */}
+          <div className="mt-16">
+            <PlanCards />
           </div>
         </div>
       </section>
