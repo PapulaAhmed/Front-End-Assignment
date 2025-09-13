@@ -17,27 +17,34 @@ import TestimonialSection from "@/components/testimonialsection";
 import ProductivitySection from "@/components/ProductivitySection";
 import HeroSection from "@/components/HeroSection";
 import Image from "next/image";
-import Link from "next/link"; // Added for footer navigation links
+import Link from "next/link";
 
-/**
- * @typedef {Object} Testimonial
- * @property {number} id - Unique identifier for the testimonial
- * @property {string} text - The testimonial text content
- * @property {string} name - The name of the person giving the testimonial
- */
+// Type definitions
+interface Testimonial {
+  id: number;
+  title?: string;
+  text: string;
+  name: string;
+}
+
+interface Post {
+  id: number;
+  userId: number;
+  title: string;
+  body: string;
+}
 
 /**
  * Fetches testimonials from JSONPlaceholder API
- * @returns {Promise<Testimonial[]>} Array of testimonials
  */
-async function fetchTestimonials() {
+async function fetchTestimonials(): Promise<Testimonial[]> {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
     // Accept JSON, and allow ISR-friendly caching
     headers: { Accept: "application/json" },
     // NOTE: no-cache here is NOT desired, we want static+ISR
   });
   if (!res.ok) throw new Error(`Failed: ${res.status}`);
-  const posts = await res.json();
+  const posts: Post[] = await res.json();
 
   // Transform posts to testimonials format
   return posts.slice(0, 12).map((post) => ({
@@ -50,7 +57,7 @@ async function fetchTestimonials() {
 
 const Home = async () => {
   // Fetch testimonials server-side
-  let testimonials = [];
+  let testimonials: Testimonial[] = [];
   try {
     testimonials = await fetchTestimonials();
   } catch (e) {

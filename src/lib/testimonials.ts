@@ -1,4 +1,19 @@
-export async function fetchTestimonials() {
+// Type definitions
+interface Post {
+  id: number;
+  userId: number;
+  title: string;
+  body: string;
+}
+
+interface Testimonial {
+  id: number;
+  title: string;
+  text: string;
+  name: string;
+}
+
+export async function fetchTestimonials(): Promise<Testimonial[]> {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
     headers: { Accept: "application/json" },
     next: { revalidate: 3600 }, // ISR every 1 hour
@@ -6,7 +21,7 @@ export async function fetchTestimonials() {
 
   if (!res.ok) throw new Error(`Failed: ${res.status}`);
 
-  const posts = await res.json();
+  const posts: Post[] = await res.json();
 
   // ✅ Your map transformation stays here
   return posts.slice(0, 12).map((post) => ({

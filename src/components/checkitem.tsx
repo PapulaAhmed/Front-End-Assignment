@@ -1,8 +1,16 @@
+import { ReactNode } from "react";
+
+interface CheckItemProps {
+  children: ReactNode;
+  className?: string;
+  iconColor?: string;
+}
+
 const CheckItem = ({
   children,
   className = "",
   iconColor = "text-slate-500",
-}) => {
+}: CheckItemProps) => {
   return (
     <li className={`flex items-center text-sm ${className}`}>
       <svg

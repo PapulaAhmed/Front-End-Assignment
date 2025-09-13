@@ -10,7 +10,7 @@ const HeroSection = () => {
   return (
     <section
       aria-labelledby="hero-title"
-      className="hero-bg bg-[linear-gradient(20deg,#1841c0_0%,#0000_50%)] flex items-center md:h-[94vh]"
+      className="hero-bg bg-[linear-gradient(20deg,#1841c0_0%,#0000_50%)] flex items-center md:max-h-[94vh]"
     >
       <div className="lg:px-16 mx-auto px-4 py-16 sm:px-6 md:py-24 xl:py-32">
         <div className="grid items-center gap-12 md:grid-cols-2 overflow-visible">
@@ -109,34 +109,18 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Right */}
-          <div className="relative" style={{ perspective: "1000px" }}>
-            <motion.div
-              animate={{
-                rotateZ: [0, 360],
-              }}
-              transition={{
-                duration: 25,
-                repeat: Infinity,
-                ease: "linear",
-              }}
+          <div className="relative flex items-center justify-center">
+            <Image
+              src="/images/Hero Section/vurtel.png"
+              alt="Vurtel"
+              width={800}
+              height={800}
+              className="relative scale-90 md:scale-140 md:-right-50 lg:right-0 lg:scale-110"
               style={{
-                transformOrigin: "center center",
-                willChange: "transform",
+                transform: "scaleX(-1)",
               }}
-            >
-              <Image
-                src="/images/Hero Section/vurtel.png"
-                alt="Vurtel"
-                width={800}
-                height={800}
-                className="relative scale-90 lg:scale-100 lg:right-0 md:scale-140 md:-right-45"
-                style={{
-                  transform: "scaleX(-1)",
-                  transformStyle: "preserve-3d",
-                }}
-              />
-            </motion.div>
-            <div className="absolute -top-10 -left-20 z-30 pointer-events-none select-none md:block hidden scale-90">
+            />
+            <div className="absolute -top-20 -left-10 z-30 lg:-top-5 lg:-left-35 pointer-events-none select-none md:block hidden lg:scale-90 md:scale-80">
               <Image
                 src="/images/Hero Section/cylinder.png"
                 alt="Cylinder"

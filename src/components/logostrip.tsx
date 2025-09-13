@@ -1,7 +1,13 @@
 import Image from "next/image";
 
+interface Logo {
+  src: string;
+  alt: string;
+  opacity: string;
+}
+
 const LogoStrip = () => {
-  const logos = [
+  const logos: Logo[] = [
     {
       src: "/images/Logo/acme 1.svg",
       alt: "Acme",

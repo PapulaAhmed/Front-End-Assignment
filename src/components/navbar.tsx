@@ -5,16 +5,21 @@ import Link from "next/link";
 import Logo from "./logo";
 import GetFreeBtn from "./getfreebtn";
 import { motion, AnimatePresence } from "framer-motion";
-import TopBanner from "./topbanner"; // Added
+import TopBanner from "./topbanner";
+
+interface NavLink {
+  href: string;
+  text: string;
+}
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const toggleMenu = () => {
+  const toggleMenu = (): void => {
     setIsOpen(!isOpen);
   };
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { href: "/about", text: "About" },
     { href: "/features", text: "Features" },
     { href: "/customers", text: "Customers" },
@@ -30,7 +35,7 @@ const Navbar = () => {
       />
       <nav className="bg-white border-b border-gray-100 relative z-20">
         <div className="mx-auto px-4 sm:px-6 lg:px-16">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between md:justify-around lg:justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center space-x-3">

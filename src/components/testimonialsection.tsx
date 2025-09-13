@@ -4,11 +4,22 @@ import { useState, useEffect } from "react";
 import TestimonialCard from "./testimonialcard";
 import Eyebrow from "./eyebrow";
 
-const TestimonialSection = ({ testimonials }) => {
-  const [isMobile, setIsMobile] = useState(false);
+// Type definitions
+interface Testimonial {
+  id: string | number;
+  title?: string;
+  text: string;
+}
+
+interface TestimonialSectionProps {
+  testimonials: Testimonial[];
+}
+
+const TestimonialSection = ({ testimonials }: TestimonialSectionProps) => {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
-    const checkScreenSize = () => {
+    const checkScreenSize = (): void => {
       setIsMobile(window.innerWidth < 768); // md breakpoint
     };
 
@@ -19,7 +30,7 @@ const TestimonialSection = ({ testimonials }) => {
   }, []);
 
   // Filter testimonials based on screen size
-  const displayedTestimonials = isMobile
+  const displayedTestimonials: Testimonial[] = isMobile
     ? testimonials.slice(0, 6) // Show 6 testimonials on mobile
     : testimonials; // Show all 12 testimonials on larger screens
 

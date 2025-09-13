@@ -1,6 +1,10 @@
 import Link from "next/link";
 
-const LearnMoreBtn = ({ variant }) => {
+interface LearnMoreBtnProps {
+  variant?: string;
+}
+
+const LearnMoreBtn = ({ variant }: LearnMoreBtnProps) => {
   return (
     <Link
       href="/learn-more"

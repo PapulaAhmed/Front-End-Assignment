@@ -13,7 +13,18 @@ import {
 } from "@/components/iconwrapper";
 import LogoStrip from "./logostrip";
 
-const features = [
+// Type definitions
+interface Feature {
+  name: string;
+  description: string;
+  href: string;
+  Icon: React.ComponentType<{
+    className?: string;
+    "aria-hidden"?: boolean;
+  }>;
+}
+
+const features: Feature[] = [
   {
     name: "Integration ecosystem",
     description: "Track your progress and motivate your efforts everyday.",
@@ -41,7 +52,7 @@ const features = [
 ];
 
 const ProductivitySection = () => {
-  const targetRef = useRef(null);
+  const targetRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "center"],
@@ -142,7 +153,7 @@ const ProductivitySection = () => {
               <div className="flex justify-start mb-3">
                 <feature.Icon
                   className="w-4 h-4 text-black"
-                  aria-hidden="true"
+                  aria-hidden={true}
                 />
               </div>
               <h3 className="text-sm font-bold text-black">{feature.name}</h3>

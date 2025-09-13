@@ -1,4 +1,9 @@
-const TestimonialCard = ({ title, text }) => {
+interface TestimonialCardProps {
+  title?: string;
+  text: string;
+}
+
+const TestimonialCard = ({ title, text }: TestimonialCardProps) => {
   return (
     <div
       className="rounded-2xl bg-white outline-none p-8 flex flex-col"

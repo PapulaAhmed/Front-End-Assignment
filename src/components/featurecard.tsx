@@ -1,7 +1,30 @@
 import Image from "next/image";
+import { ReactNode } from "react";
+
+// Type definitions
+interface FeatureData {
+  imageSrc: string;
+  imageAlt: string;
+  title: string;
+  description: ReactNode;
+}
+
+interface FeatureCardProps {
+  imageSrc: string;
+  imageAlt: string;
+  title: string;
+  description: ReactNode;
+  imageWidth?: number;
+  imageHeight?: number;
+}
+
+interface FeatureCardsProps {
+  features?: FeatureData[];
+  containerClassName?: string;
+}
 
 // Feature Cards Data
-export const featuresData = [
+export const featuresData: FeatureData[] = [
   {
     imageSrc: "/images/Management Section/cube-helix.png",
     imageAlt: "Blue 3D shape",
@@ -34,7 +57,7 @@ const FeatureCard = ({
   description,
   imageWidth = 320,
   imageHeight = 240,
-}) => {
+}: FeatureCardProps) => {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white shadow-xl p-6">
       <div className="aspect-[5/3] overflow-hidden rounded-xl">
@@ -64,7 +87,7 @@ const FeatureCard = ({
 const FeatureCards = ({
   features = featuresData,
   containerClassName = "mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6 mx-auto max-w-md lg:max-w-none",
-}) => {
+}: FeatureCardsProps) => {
   return (
     <div className={containerClassName}>
       {features.map((feature, index) => (

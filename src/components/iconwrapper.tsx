@@ -1,3 +1,19 @@
+import { ReactNode, HTMLAttributes } from "react";
+
+// Type definitions
+interface IconWrapperProps extends HTMLAttributes<HTMLDivElement> {
+  children: ReactNode;
+  className?: string;
+  size?: string;
+  color?: string;
+}
+
+interface IconProps extends HTMLAttributes<HTMLDivElement> {
+  className?: string;
+  size?: string;
+  color?: string;
+}
+
 // Base Icon Wrapper Component
 const IconWrapper = ({
   children,
@@ -5,7 +21,7 @@ const IconWrapper = ({
   size = "24",
   color = "currentColor",
   ...props
-}) => {
+}: IconWrapperProps) => {
   return (
     <div
       className={`inline-flex items-center justify-center ${className}`}
@@ -22,7 +38,7 @@ const IntegrationIcon = ({
   size = "20",
   color = "currentColor",
   ...props
-}) => {
+}: IconProps) => {
   return (
     <IconWrapper className={className} {...props}>
       <svg
@@ -46,7 +62,7 @@ const GoalIcon = ({
   size = "24",
   color = "currentColor",
   ...props
-}) => {
+}: IconProps) => {
   return (
     <IconWrapper className={className} {...props}>
       <svg
@@ -70,7 +86,7 @@ const SecurityIcon = ({
   size = "20",
   color = "currentColor",
   ...props
-}) => {
+}: IconProps) => {
   return (
     <IconWrapper className={className} {...props}>
       <svg
@@ -94,7 +110,7 @@ const NotificationIcon = ({
   size = "24",
   color = "currentColor",
   ...props
-}) => {
+}: IconProps) => {
   return (
     <IconWrapper className={className} {...props}>
       <svg

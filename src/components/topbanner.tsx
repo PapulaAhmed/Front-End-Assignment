@@ -2,12 +2,19 @@
 import Link from "next/link";
 import { useState } from "react";
 
+interface TopBannerProps {
+  text?: string;
+  linkHref?: string;
+  linkLabel?: string;
+  className?: string;
+}
+
 const TopBanner = ({
   text = "This page is included in a free SaaS Website Kit",
   linkHref = "https://example.com",
   linkLabel = "View the complete Kit",
   className = "",
-}) => {
+}: TopBannerProps) => {
   return (
     <div
       className={`relative z-30 w-full bg-black text-[13px] sm:text-sm text-slate-200 flex flex-wrap items-center justify-center px-3 py-2 gap-2 border-b border-neutral-800 pointer-events-auto ${className}`}

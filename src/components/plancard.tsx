@@ -1,5 +1,40 @@
 import CheckItem from "./checkitem";
 
+// Type definitions
+interface PlanCardProps {
+  planName: string;
+  price: string;
+  priceColor?: string;
+  titleColor?: string;
+  buttonText: string;
+  buttonStyle?: string;
+  features: string[];
+  featuresColor?: string;
+  isPopular?: boolean;
+  popularBadge?: string;
+  cardStyle?: string;
+  className?: string;
+}
+
+interface PricingPlan {
+  planName: string;
+  price: string;
+  priceColor: string;
+  titleColor: string;
+  buttonText: string;
+  buttonStyle: string;
+  features: string[];
+  featuresColor: string;
+  cardStyle: string;
+  isPopular: boolean;
+  popularBadge?: string;
+}
+
+interface PlanCardsProps {
+  plans?: PricingPlan[];
+  containerClassName?: string;
+}
+
 // Plan Card Component for pricing plans
 const PlanCard = ({
   planName,
@@ -14,7 +49,7 @@ const PlanCard = ({
   popularBadge = "Most Popular",
   cardStyle = "bg-white border-slate-200",
   className = "",
-}) => {
+}: PlanCardProps) => {
   return (
     <div
       className={`rounded-2xl p-8 border shadow-sm relative ${cardStyle} ${className}`}
@@ -65,7 +100,7 @@ const PlanCard = ({
 };
 
 // Pricing Plans Data
-export const pricingPlans = [
+export const pricingPlans: PricingPlan[] = [
   {
     planName: "Free",
     price: "$0",
@@ -134,7 +169,7 @@ export const pricingPlans = [
 const PlanCards = ({
   plans = pricingPlans,
   containerClassName = "grid grid-cols-1 lg:grid-cols-3 gap-8 mx-auto items-end w-fit",
-}) => {
+}: PlanCardsProps) => {
   return (
     <div className={containerClassName}>
       {plans.map((plan, index) => (

@@ -1,5 +1,28 @@
+import React from "react";
+
+// Type definitions
+interface IconProps {
+  className?: string;
+  fill?: string;
+}
+
+interface SocialIconBtnProps {
+  Icon: React.ComponentType<IconProps>;
+  className?: string;
+  iconProps?: IconProps;
+}
+
+interface SocialMediaIconsProps {
+  containerClassName?: string;
+  iconButtonClassName?: string;
+  iconProps?: IconProps;
+}
+
 // Individual Social Media Icon Components
-export const TwitterIcon = ({ className = "w-4 h-4", fill = "#9CA3AF" }) => (
+export const TwitterIcon = ({
+  className = "w-4 h-4",
+  fill = "#9CA3AF",
+}: IconProps) => (
   <svg
     width="16"
     height="14"
@@ -15,7 +38,10 @@ export const TwitterIcon = ({ className = "w-4 h-4", fill = "#9CA3AF" }) => (
   </svg>
 );
 
-export const InstagramIcon = ({ className = "w-4 h-4", fill = "#9CA3AF" }) => (
+export const InstagramIcon = ({
+  className = "w-4 h-4",
+  fill = "#9CA3AF",
+}: IconProps) => (
   <svg
     width="16"
     height="16"
@@ -31,7 +57,10 @@ export const InstagramIcon = ({ className = "w-4 h-4", fill = "#9CA3AF" }) => (
   </svg>
 );
 
-export const PinterestIcon = ({ className = "w-4 h-4", fill = "#9CA3AF" }) => (
+export const PinterestIcon = ({
+  className = "w-4 h-4",
+  fill = "#9CA3AF",
+}: IconProps) => (
   <svg
     width="16"
     height="16"
@@ -47,7 +76,10 @@ export const PinterestIcon = ({ className = "w-4 h-4", fill = "#9CA3AF" }) => (
   </svg>
 );
 
-export const LinkedInIcon = ({ className = "w-4 h-4", fill = "#9CA3AF" }) => (
+export const LinkedInIcon = ({
+  className = "w-4 h-4",
+  fill = "#9CA3AF",
+}: IconProps) => (
   <svg
     width="16"
     height="16"
@@ -63,7 +95,10 @@ export const LinkedInIcon = ({ className = "w-4 h-4", fill = "#9CA3AF" }) => (
   </svg>
 );
 
-export const TikTokIcon = ({ className = "w-3 h-4", fill = "#9CA3AF" }) => (
+export const TikTokIcon = ({
+  className = "w-3 h-4",
+  fill = "#9CA3AF",
+}: IconProps) => (
   <svg
     width="12"
     height="16"
@@ -79,7 +114,10 @@ export const TikTokIcon = ({ className = "w-3 h-4", fill = "#9CA3AF" }) => (
   </svg>
 );
 
-export const YouTubeIcon = ({ className = "w-4 h-3", fill = "#9CA3AF" }) => (
+export const YouTubeIcon = ({
+  className = "w-4 h-3",
+  fill = "#9CA3AF",
+}: IconProps) => (
   <svg
     width="16"
     height="12"
@@ -100,7 +138,7 @@ export const SocialIconBtn = ({
   Icon,
   className = "h-8 w-8 rounded flex items-center justify-center hover:bg-slate-600 transition-colors cursor-pointer",
   iconProps = {},
-}) => (
+}: SocialIconBtnProps) => (
   <div className={className}>
     <Icon {...iconProps} />
   </div>
@@ -111,7 +149,7 @@ const SocialMediaIcons = ({
   containerClassName = "flex space-x-3",
   iconButtonClassName,
   iconProps = {},
-}) => {
+}: SocialMediaIconsProps) => {
   return (
     <div className={containerClassName}>
       <SocialIconBtn
