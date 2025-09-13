@@ -1,13 +1,13 @@
-"use client";
+import Link from "next/link";
 
 const GetFreeBtn = () => {
   return (
-    <button
+    <Link
+      href="/get-free"
       className="rounded-lg bg-black px-4 py-2 text-white font-semibold hover:bg-gray-800 transition-colors duration-200"
-      onClick={() => alert("Get it for free clicked")}
     >
       Get for free
-    </button>
+    </Link>
   );
 };
 

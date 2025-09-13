@@ -1,6 +1,9 @@
+import Link from "next/link";
+
 const LearnMoreBtn = ({ variant }) => {
   return (
-    <button
+    <Link
+      href="/learn-more"
       className={`text-slate-900 hover:underline transition-all duration-200 flex items-center gap-2 ${variant}`}
     >
       Learn more
@@ -16,7 +19,7 @@ const LearnMoreBtn = ({ variant }) => {
           fill="black"
         />
       </svg>
-    </button>
+    </Link>
   );
 };
 
